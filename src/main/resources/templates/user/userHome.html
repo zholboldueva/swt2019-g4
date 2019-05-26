@@ -12,11 +12,11 @@
 
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 " th:action="@{/logout}" method="post">
-            <button class="btn btn-md btn-danger btn-lg " name="registration" type="Submit">Logout</button>
+    <div class="row" style="margin-top:20px">
+        <div class="col-md-10 ">
+            <a class="btn btn-md btn-danger btn-lg "name="logout" type="Submit" th:href="@{/logout}" >Logout</a>
         </div>
-        <div class="btn-group col-md-2">
+        <div class="btn-group col-md-2" >
             <button type="button" class="btn btn-primary dropdown-toggle btn-lg" style="float:right" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                 Menu

@@ -25,6 +25,9 @@
         <div align="center" th:if="${param.error}">
             <p style="font-size: 20; color: #FF1C19;">E-Mail oder Passwort ungueltig, bitte ueberpruefen</p>
         </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+            <p style="font-size: 20; color: #FF1C19;">Sie sind abgemeldet.</p>
+        </div>
         <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
                 th:text="Login"></button>
     </form>
