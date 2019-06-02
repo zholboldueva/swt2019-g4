@@ -16,18 +16,16 @@
         <div class="col-md-10 ">
             <a class="btn btn-md btn-danger btn-lg "name="logout" type="Submit" th:href="@{/logout}" >Logout</a>
         </div>
-        <div class="btn-group col-md-2" >
-            <button type="button" class="btn btn-primary dropdown-toggle btn-lg" style="float:right" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                Menu
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" type="button">Profile</br></a>
-                <a class="dropdown-item" type="button">Anfragen</br></a>
-                <a class="dropdown-item" type="button">Angeboten</br></a>
-                <a class="dropdown-item" type="button">Settings</br></a>
-
-            </div>
+        <div class="dropdown col-md-2">
+            <button class="btn btn-primary dropdown-toggle btn-lg" style="float:right" type="button"
+                    data-toggle="dropdown">Menu
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li th:action="@{/user/profile}" method="get"><a href="#" > Profile</a></li>
+                <li><a href="#">Anfragen</a></li>
+                <li><a href="#">Angeboten</a></li>
+                <li><a href="#">Eigenschaften</a></li>
+            </ul>
         </div>
     </div>
 

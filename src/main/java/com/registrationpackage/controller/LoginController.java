@@ -75,6 +75,13 @@ public class LoginController {
         modelAndView.setViewName("/user/userHome");
         return modelAndView;
     }
+
+    @RequestMapping(value = {"/user/profile"}, method = RequestMethod.GET)
+    public ModelAndView getProfile() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/user/profile");
+        return modelAndView;
+    }
 }
 
 
