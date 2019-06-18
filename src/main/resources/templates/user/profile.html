@@ -24,9 +24,9 @@
                     data-toggle="dropdown">Menu
                 <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Anfragen</a></li>
-                <li><a href="#">Angeboten</a></li>
+                <li><a th:href="@{/user/profile}">Profile</a></li>
+                <li><a th:href="@{/user/auftragPage}">Auftrag </a></li>
+                <li><a th:href="@{/user/userHome}">Home</a></li>
                 <li><a href="#">Eigenschaften</a></li>
             </ul>
         </div>
@@ -35,48 +35,57 @@
     <div class="panel-group panel-primary" style="margin-top:10px">
         <div class="panel-heading">Profil</div>
         <div class="panel-body">
-            <div class="row" style="margin-top:20px">
-                <a class=" col-md-6"><label> Name: </label>
-                    <input class="form-control col-md-4" type="text" name="clientName"/></a>
-            </div>
-            <img th:src="@{/images/user.png}" class="img-circle" alt="Profil" width="100" height="100" style="float:right"/>
-            <div class="row" style="margin-top:20px">
-                <a class=" col-md-6"> <label>Nachname: </label>
-                    <input class=" form-control col-md-5" type="text"/></a>
-            </div>
-            <div class="row" style="margin-top:20px">
-                <a class=" col-md-6"><label> E-Börse Guthaben: </label>
-                    <input class="form-control col-md-4" type="text" name="clientName"/></a>
-            </div>
-            <div class="row" style="margin-top:20px">
-                <a class=" col-md-6"><label> Straße Nr: </label>
-                    <input class="form-control" type="text" name="clientName"/></a>
-                <a class=" col-md-3"><label> Plz: </label>
-                    <input class="form-control " type="text" name="clientName"/></a>
-                <a class=" col-md-3"><label> Ort: </label>
-                    <input class="form-control " type="text" name="clientName"/></a>
-            </div>
-            <div class="row" style="margin-top:20px">
-                <div class="form-group" style="margin-top:20px">
-                    <a class=" col-md-6"><label> Email: </label>
+            <form autocomplete="off" action="#" th:action="@{/saveProfile}"
+                  th:object="${profile}" method="post" class="form-horizontal"
+                  role="form">
+                <div class="row" style="margin-top:20px">
+                    <a class=" col-md-6"><label> Name: </label>
+                        <input class="form-control col-md-4" type="text" name="clientName" th:utext="${profile_Name}"
+                               disabled="disabled"/></a>
+                </div>
+                <img th:src="@{/images/user.png}" class="img-circle" alt="Profil" width="100" height="100"
+                     style="float:right"/>
+                <div class="row" style="margin-top:20px">
+                    <a class=" col-md-6"> <label>Nachname: </label>
+                        <input class=" form-control col-md-5" type="text" th:utext="${profile_LName}"
+                               disabled="disabled"/></a>
+                </div>
+                <div class="row" style="margin-top:20px">
+                    <a class=" col-md-6"><label> E-Börse Guthaben: </label>
+                        <input class="form-control col-md-4" type="text" name="clientName" th:field="*{name}"
+                               /></a>
+                </div>
+                <div class="row" style="margin-top:20px">
+                    <a class=" col-md-6"><label> Straße Nr: </label>
                         <input class="form-control" type="text" name="clientName"/></a>
-                    <a class=" col-md-6"><label> Telefon: </label>
+                    <a class=" col-md-3"><label> Plz: </label>
+                        <input class="form-control " type="text" name="clientName"/></a>
+                    <a class=" col-md-3"><label> Ort: </label>
                         <input class="form-control " type="text" name="clientName"/></a>
                 </div>
-            </div>
-            <div class="row" style="margin-top:20px">
-                <div class="form-group" style="margin-top:20px">
-                    <a class=" col-md-6"><label> Reisepassnummer: </label>
-                        <input class="form-control" type="text" name="clientName"/></a>
-                    <a class=" col-md-6"><label> Ausstellungsland: </label>
-                        <input class="form-control " type="text" name="clientName"/></a>
+                <div class="row" style="margin-top:20px">
+                    <div class="form-group" style="margin-top:20px">
+                        <a class=" col-md-6"><label> Email: </label>
+                            <input class="form-control" type="text" name="clientName" th:utext="${profile_Email}"
+                                   disabled="disabled"/></a>
+                        <a class=" col-md-6"><label> Telefon: </label>
+                            <input class="form-control " type="text" name="clientName"/></a>
+                    </div>
                 </div>
-            </div>
-            <div style="margin-top:20px">
-                <button type="button" class="btn btn-success btn-lg" style="float:right">Speichern</button>
-            </div>
-
+                <div class="row" style="margin-top:20px">
+                    <div class="form-group" style="margin-top:20px">
+                        <a class=" col-md-6"><label> Reisepassnummer: </label>
+                            <input class="form-control" type="text" name="clientName"/></a>
+                        <a class=" col-md-6"><label> Ausstellungsland: </label>
+                            <input class="form-control " type="text" name="clientName"/></a>
+                    </div>
+                </div>
+                <div style="margin-top:20px">
+                    <button type="button" class="btn btn-success btn-lg" style="float:right">Speichern</button>
+                </div>
+            </form>
         </div>
+
     </div>
 
 
