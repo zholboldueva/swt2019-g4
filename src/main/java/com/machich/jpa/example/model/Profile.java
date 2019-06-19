@@ -4,6 +4,7 @@ package com.machich.jpa.example.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -50,14 +51,21 @@ public class Profile {
     @Column(name = "PassportNr")
     private String passportNr;
 
+    @Column(name = "Ausstellungsland")
+    private String ausstellungsland;
+
+    @Column(name = "user_u")
+    private User user;
+
     @Transient
     private MultipartFile userImage;
 
     public Profile(User user){
-        this.name=user.getName();
-        this.lastname=user.getLastName();
-        this.email=user.getEmail();
+        this.user=user;
     }
+
+    public Profile(){}
+
 
     public String adressToString(){
         return street+", "+postCode+", "+city;

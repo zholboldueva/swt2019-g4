@@ -50,7 +50,7 @@
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"><label > E-Börse Guthaben: </label>
                         <input class="form-control col-md-4" type="text" name="E-Boerse"
-                               th:field="*{e_purse}" /></a>
+                               th:placeholder="*{e_purse}" /></a>
                 </div>
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"><label > Straße Nr: </label>
@@ -61,17 +61,17 @@
                         <input class="form-control " type="text" name="city" th:field="*{city}"/></a>
                 </div>
                 <div class="row" style="margin-top:20px">
-                        <a class=" col-md-6"><label> Email: </label>
-                            <input class="form-control col-md-5" type="text" name="profile_Email"
-                                   disabled="disabled"  th:placeholder="${profile_Email}"/></a>
-                        <a class=" col-md-6"><label > Telefon: </label>
-                            <input class="form-control " type="text" name="telNr" th:field="*{telNr}"/></a>
+                    <a class=" col-md-6"><label> Email: </label>
+                        <input class="form-control col-md-5" type="text" name="profile_Email"
+                               disabled="disabled"  th:placeholder="${profile_Email}"/></a>
+                    <a class=" col-md-6"><label > Telefon: </label>
+                        <input class="form-control " type="text" name="telNr" th:field="*{telNr}"/></a>
                 </div>
                 <div class="row" style="margin-top:20px">
-                        <a class=" col-md-6"><label > Reisepassnummer: </label>
-                            <input class="form-control" type="text" name="passportNr" th:field="*{passportNr}"/></a>
-                        <a class=" col-md-6"><label > Ausstellungsland: </label>
-                            <input class="form-control " type="text" name="ausstellungsland" th:field="*{ausstellungsland}"/></a>
+                    <a class=" col-md-6"><label > Reisepassnummer: </label>
+                        <input class="form-control" type="text" name="passportNr" th:field="*{passportNr}"/></a>
+                    <a class=" col-md-6"><label > Ausstellungsland: </label>
+                        <input class="form-control " type="text" name="ausstellungsland" th:field="*{ausstellungsland}"/></a>
                 </div>
                 <div style="margin-top:20px">
                     <button type="submit" class="btn btn-success btn-lg" style="float:right">Speichern</button>

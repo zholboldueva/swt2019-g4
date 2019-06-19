@@ -17,9 +17,8 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Profile saveProfile(Profile profile) {
-        profile.setE_purse(new Long(100));
-        return profileRepository.save(profile);
+    public void saveProfile(Profile profile) {
+         this.profileRepository.save(profile);
     }
 
     @Override
