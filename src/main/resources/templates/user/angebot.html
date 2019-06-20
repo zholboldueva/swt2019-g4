@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Anfrage Page</title>
+    <title>Angebot Page</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -29,48 +29,47 @@
             </ul>
         </div>
     </div>
-
     <div class="panel-group panel-primary" style="margin-top:10px">
-        <div class="panel-heading">Auftrag</div>
+        <div class="panel-heading">Angebot</div>
         <div class="panel-body">
-                <form class="form-horizontal" autocomplete="off" th:action="@{/user/auftragPage}" th:object="${auftrag}"
-                      method="post" role="form">
+            <form autocomplete="off" action="#" th:action="@{/user/angebot}" th:object="${angebot}" method="post"
+                  class="form-horizontal" role="form">
+                <div class="row" style="margin-top:20px">
 
                     <div class="form-group row" style="margin-top: 20px">
                         <label class="col-sm-2 col-form-label">Waehelen Sie eine Kategorie</label>
                         <div class="col-sm-10">
-                            <select class="form-control"  th:field="*{kategory}">
+                            <select class="form-control"  th:field="*{category}">
                                 <option th:each="state : ${T(com.machich.jpa.example.model.Category).values()}" th:value="${state}" th:text="${state.displayName}"></option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Titel der Anzeige</label>
+                        <label class="col-sm-2 col-form-label">Titel der Angebot</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="title" th:field="*{title}"/>
+                            <input type="text" class="form-control" name="title" th:field="*{title}">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" >Schluesselwort</label>
+                        <label class="col-sm-2 col-form-label">Kompetenzen</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="schlusselwort" th:field="*{schlusselwort}"/>
+                            <input type="text" class="form-control" name="kompetenzenList" th:field="*{kompetenzenList}">
                         </div>
                     </div>
 
                     <div class="form-group row" style="margin-top: 20px">
                         <label class="col-sm-2 col-form-label">Geben Sie Preis *</label>
                         <div class="col-sm-10">
-                            <input  class="col-sm-3" type="number" step="any" name="preice" th:field="*{preice}"><label class="col-sm-3"> Euro</label>
+                            <input  class="col-sm-3" type="number" step="any" name="preis" th:field="*{preis}"><label class="col-sm-3"> Euro</label>
                         </div>
                     </div>
 
                     <div class="form-group row" style="margin-top: 20px">
                         <label class="col-sm-2 col-form-label">Ort, PLZ *</label>
                         <div class="col-md-3 mb-3">
-                            <input type="text" class="form-control" name="ort" th:field="*{ort}" required/>
-
+                            <input type="text" class="form-control" name="ort" th:field="*{ort}" required>
                         </div>
                         <div class="col-md-3 mb-3">
                             <input type="text" class="form-control" name="plz" th:field="*{plz}" required>
@@ -84,6 +83,7 @@
                         </div>
                     </div>
 
+
                     <div class="form-group row" style="margin-top: 20px">
                         <label class="col-sm-2 col-form-label">Kommentare/ Beschreibung</label>
                         <div class="col-md-3 mb-3">
@@ -91,13 +91,18 @@
                         </div>
                     </div>
 
-                    <button type="submit"  class="btn btn-success btn-lg" style="float:right">Speichern
+                    <button type="Submit" class="btn btn-success btn-lg" style="float:right">Speichern
                     </button>
-                    <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
-                </form>
-            </div>
+                </div>
         </div>
+        </form>
     </div>
+</div>
+
+
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

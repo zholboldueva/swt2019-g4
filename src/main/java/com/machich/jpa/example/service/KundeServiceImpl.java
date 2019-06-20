@@ -6,7 +6,9 @@ import com.machich.jpa.example.model.Kunde;
 import com.machich.jpa.example.repository.AuftragRepository;
 import com.machich.jpa.example.repository.KundeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class KundeServiceImpl implements KundeService {
 
 
@@ -21,9 +23,7 @@ public class KundeServiceImpl implements KundeService {
 
 
     @Override
-    public Kunde addKunde(Kunde kunde) {
-        Kunde kundenObj= kundenrepository.save(kunde);
-        return kundenObj;
+    public void saveKunde(Kunde kunde) {
+        kundenrepository.save(kunde);
     }
-
 }

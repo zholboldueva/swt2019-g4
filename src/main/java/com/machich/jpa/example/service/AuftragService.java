@@ -7,10 +7,13 @@ import java.util.List;
 
 public interface AuftragService {
 
-    Auftrag addAuftrag(Auftrag auftrag);
+    void saveAuftrag(Auftrag auftrag);
 
     List<Auftrag> getAll();
 
     Auftrag getByID(int id);
+
+    void addAuftrag(List<Auftrag> auftragList, int id);
+
 
 }

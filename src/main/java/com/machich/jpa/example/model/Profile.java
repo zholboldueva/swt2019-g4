@@ -27,9 +27,6 @@ public class Profile {
     @Column(name = "Lastname")
     private String lastname;
 
-    @Column(name = "dateBirth")
-    private Date dateBirth;
-
     @Column(name = "E_purse")
     private Long e_purse;
 
@@ -54,14 +51,14 @@ public class Profile {
     @Column(name = "Ausstellungsland")
     private String ausstellungsland;
 
-    @Column(name = "user_u")
-    private User user;
-
+//    @Column(name = "img")
     @Transient
     private MultipartFile userImage;
 
     public Profile(User user){
-        this.user=user;
+        this.name=user.getName();
+        this.lastname=user.getLastName();
+        this.email=user.getEmail();
     }
 
     public Profile(){}

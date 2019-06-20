@@ -25,6 +25,7 @@
             <ul class="dropdown-menu">
                 <li><a th:href="@{/user/profile}">Profile</a></li>
                 <li><a th:href="@{/user/auftragPage}">Auftrag </a></li>
+                <li><a th:href="@{/user/angebot}">Angebot </a></li>
                 <li><a th:href="@{/user/userHome}">Home</a></li>
                 <li><a href="#">Eigenschaften</a></li>
             </ul>
@@ -42,6 +43,7 @@
                 </div>
                 <img th:src="@{/images/user.png}" class="img-circle" alt="Profil" width="100" height="100"
                      style="float:right"/>
+<!--                <img th:src="@{'/uploads/' + ${someobject.someAttribute}}"/>-->
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"> <label>Nachname: </label>
                         <input class=" form-control col-md-5" type="text"
@@ -74,7 +76,7 @@
                             <input class="form-control " type="text" name="ausstellungsland" th:field="*{ausstellungsland}"/></a>
                 </div>
                 <div style="margin-top:20px">
-                    <button type="submit" class="btn btn-success btn-lg" style="float:right">Speichern</button>
+                    <button type="submit" class="btn btn-success btn-lg" th:href="@{/user/savedProfile}" style="float:right">Speichern</button>
                 </div>
                 <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
             </form>

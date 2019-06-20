@@ -11,15 +11,17 @@ import java.util.List;
 @Service
 public class AuftragServiceImpl implements AuftragService {
 
-    @Qualifier("auftragRepository")
+
+     AuftragRepository auftragRepository ;
+
     @Autowired
-    private AuftragRepository auftragRepository;
+    public AuftragServiceImpl(@Qualifier("auftragRepository") AuftragRepository auftragRepository){
+        this.auftragRepository=auftragRepository;
+    }
 
     @Override
-    public Auftrag addAuftrag(Auftrag auftrag) {
-        Auftrag saveAuftrag = auftragRepository.saveAndFlush(auftrag);
-
-        return saveAuftrag;
+    public void saveAuftrag(Auftrag auftrag) {
+        auftragRepository.save(auftrag);
     }
 
     @Override
@@ -30,6 +32,11 @@ public class AuftragServiceImpl implements AuftragService {
     @Override
     public Auftrag getByID(int id) {
         return auftragRepository.findById(id);
+    }
+
+    @Override
+    public void addAuftrag(List<Auftrag> auftragList, int id) {
+        auftragList.add(auftragRepository.findById(id));
     }
 
 

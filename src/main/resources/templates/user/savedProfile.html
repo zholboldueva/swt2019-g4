@@ -25,6 +25,7 @@
             <ul class="dropdown-menu">
                 <li><a th:href="@{/user/profile}">Profile</a></li>
                 <li><a th:href="@{/user/auftragPage}">Auftrag </a></li>
+                <li><a th:href="@{/user/angebot}">Angebot </a></li>
                 <li><a th:href="@{/user/userHome}">Home</a></li>
                 <li><a href="#">Eigenschaften</a></li>
             </ul>
@@ -38,14 +39,14 @@
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"><label> Name: </label>
                         <input class="form-control col-md-4" type="text" name="clientName"
-                               disabled="disabled" th:placeholder="${profile_Name}"/></a>
+                               th:placeholder="${profile_Name}"/></a>
                 </div>
                 <img th:src="@{/images/user.png}" class="img-circle" alt="Profil" width="100" height="100"
                      style="float:right"/>
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"> <label>Nachname: </label>
                         <input class=" form-control col-md-5" type="text"
-                               disabled="disabled" th:placeholder="${profile_LName}" /></a>
+                               th:placeholder="${profile_LName}" /></a>
                 </div>
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"><label > E-Börse Guthaben: </label>
@@ -54,29 +55,25 @@
                 </div>
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"><label > Straße Nr: </label>
-                        <input class="form-control" type="text" name="street" th:field="*{street}"/></a>
+                        <input class="form-control" type="text" name="street" th:placeholder="*{street}"/></a>
                     <a class=" col-md-3"><label > Plz: </label>
-                        <input class="form-control " type="text" name="postCode" th:field="*{postCode}"/></a>
+                        <input class="form-control " type="text" name="postCode" th:placeholder="*{postCode}"/></a>
                     <a class=" col-md-3"><label > Ort: </label>
-                        <input class="form-control " type="text" name="city" th:field="*{city}"/></a>
+                        <input class="form-control " type="text" name="city" th:placeholder="*{city}"/></a>
                 </div>
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"><label> Email: </label>
                         <input class="form-control col-md-5" type="text" name="profile_Email"
                                disabled="disabled"  th:placeholder="${profile_Email}"/></a>
                     <a class=" col-md-6"><label > Telefon: </label>
-                        <input class="form-control " type="text" name="telNr" th:field="*{telNr}"/></a>
+                        <input class="form-control " type="text" name="telNr" th:placeholder="*{telNr}"/></a>
                 </div>
                 <div class="row" style="margin-top:20px">
                     <a class=" col-md-6"><label > Reisepassnummer: </label>
-                        <input class="form-control" type="text" name="passportNr" th:field="*{passportNr}"/></a>
+                        <input class="form-control" type="text" name="passportNr" th:placeholder="*{passportNr}"/></a>
                     <a class=" col-md-6"><label > Ausstellungsland: </label>
-                        <input class="form-control " type="text" name="ausstellungsland" th:field="*{ausstellungsland}"/></a>
+                        <input class="form-control " type="text" name="ausstellungsland" th:placeholder="*{ausstellungsland}"/></a>
                 </div>
-                <div style="margin-top:20px">
-                    <button type="submit" class="btn btn-success btn-lg" style="float:right">Speichern</button>
-                </div>
-                <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
             </form>
         </div>
 

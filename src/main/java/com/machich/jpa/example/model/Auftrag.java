@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "AUFTRAG")
 public class Auftrag {
@@ -24,19 +24,20 @@ public class Auftrag {
     @Column(name = "TITEL")
     private String title;
     @Column(name = "SCHLUSSELWORT")
-    private String schlusselwort;
+    @ElementCollection(targetClass=String.class)
+    private List<String> schlusselwort;
     @Column(name = "PREIS")
     private Long preice;
-    @Column(name = "ADRESS")
-    private String adress;
+    @Column(name = "Ort")
+    private String ort;
+    @Column(name = "Plz")
+    private String plz;
     @Column(name = "BESCHREIBUNG")
     private String beschreibung;
-    @Column(name = "TERMIN")
-    private Date termin;
+   @Column(name = "TERMIN")
+    private String termin;
 
-    @Override
-    public String toString() {
-        return "AUFTRAG_ID [id=" + id + ", kategory=" + kategory + ", schlusselwort=" + schlusselwort +", title=" + title + ", price=" + preice + ", adress=" + adress + ", beschreibung=" +", termin" + termin + "]";
-    }
+    public Auftrag(){}
+
 
 }

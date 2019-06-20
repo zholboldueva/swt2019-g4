@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -78,45 +79,9 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value = "/user/profile", method = RequestMethod.GET)
-    public ModelAndView profileSite() {
-        ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        Profile profile=new Profile(user);
-        modelAndView.addObject("profile", profile);
-        modelAndView.addObject("profile_Name", profile.getName());
-        modelAndView.addObject("profile_LName", profile.getLastname());
-        modelAndView.addObject("profile_Email", profile.getEmail());
-        modelAndView.setViewName("/user/profile");
-        return modelAndView;
-    }
 
-    @RequestMapping(value = "/user/auftragPage", method = RequestMethod.GET)
-    public ModelAndView auftragSite() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/user/auftragPage");
-        return modelAndView;
-    }
 
-    @RequestMapping(value = "/user/profile", method = RequestMethod.POST)
-    public ModelAndView saveProfile(@Valid Profile profile, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("/user/profile");
-        } else {
-            profile.setName(user.getName());
-            profile.setEmail(user.getEmail());
-            profile.setLastname(user.getLastName());
-            profileService.saveProfile(profile);
-            modelAndView.addObject("profile", new Profile(user));
-            modelAndView.addObject("successMessage", "Die Profile wurde erfolgreich gespeichert");
-            modelAndView.setViewName("/user/profile");
-        }
-        return modelAndView;
-    }
+
 
 
 
